@@ -19,7 +19,7 @@ Config setup;
 
 
 
-# For running load generators;
+### For running load generators;
 * value of location can be;
   - local
   - local-docker
@@ -47,7 +47,7 @@ Config setup;
         }
     },
 ```    
-# For controller setup
+### For controller setup
 * if createinstance is true, script will try creating a docker-machine with host name provided in host. If false, it will check if host machine is active. 
 
 ```json
