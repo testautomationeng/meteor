@@ -1,0 +1,7 @@
+ignore/
+apache-jmeter-5.1.1/
+Report/outfile.jtl
+jmeter-docker/authorized_keys
+jmeter-docker/*.jks
+keyfile/id_rsa
+keyfile/*.ppk

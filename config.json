@@ -1,0 +1,42 @@
+{
+    "loadgen":{
+        "OS": "linux",
+        "location":"cloud-docker",
+        "host": "192.168.20.22,192.168.20.21",
+        "privatekey":"privatekey.ppk",
+        "cloud": {
+            "loadgencount": 1,
+            "driver": "virtualbox",
+            "hypervswitchname":"Private Switch",
+            "accesskeyid": "aws access id",
+            "accesskeypass": "aws access key"
+        }
+    },
+    "controller":{
+        "OS":"linux",
+        "location": "cloud-docker",
+        "host": "192.168.20.17",
+        "privatekey":"privatekey.ppk",
+        "cloud":{
+            "createinstance": "false",
+            "driver": "virtualbox",
+            "hypervswitchname":"Private Switch",
+            "accesskeyid": "aws access key",
+            "accesskeypass":"aws access pass",
+            "host": "jmetercontroller"
+        }
+    },
+    "report":{
+        "type" : "graphite", 
+        "cloudwatch":"TBD",
+        "graphiteServer": "192.168.20.17",
+        "graphitePort": 2003    
+    },
+    "threadSetup":{
+        "threadCount" : 10,
+        "rampUpPeriod":10,
+        "loopCount" : 1,
+        "schedulerDuration" : null,
+        "schedulerStartUpDelay" : null
+    }
+}

@@ -1,0 +1,7 @@
+threads=10 
+rampUpPeriod=10
+loopCount=1
+schDuration=
+schDelay=
+gServer=192.168.20.17
+gPort=2003
