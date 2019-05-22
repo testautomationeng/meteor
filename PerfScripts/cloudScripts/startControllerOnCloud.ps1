@@ -77,4 +77,4 @@ if($isdocker){
 Write-Host "Start Jmeter Script execution on ${controllerHost}" -fore Green
 .\dockermachine\docker-machine.exe ssh $controllerHost $cmd
 Write-Host "Getting results file on local Report folder" -ForegroundColor Cyan
-.".\PerfScripts\common\getFromCloud.ps1" ./Report ~/tmp/controller/outfile.jtl $controllerHost $isdocker
+.".\PerfScripts\common\getFromCloud.ps1" ./Report/ ~/tmp/controller/outfile.jtl $controllerHost $isdocker

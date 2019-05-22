@@ -26,7 +26,8 @@ Config setup;
   - cloud
   - cloud-docker
 * host should contain comma separated list of servers if location is local or local-docker
-* private key file should be available in keyfile folder
+* private key file should be available in keyfile folder in base folder
+* username contains the username to login into the load generators
 * for cloud load generators, the valud of driver can be;
   - amazonec2 (for ec2 instances, accesskeyid and accesskeypass are required) 
   - hyperv (for Hyervisor virual machines, hypervswitchname required)
@@ -37,6 +38,7 @@ Config setup;
         "OS": "linux",
         "location":"cloud-docker",
         "host": "192.168.20.22,192.168.20.21",
+        "username": "ubuntu",
         "privatekey":"privatekey.ppk",
         "cloud": {
             "loadgencount": 1,
@@ -49,13 +51,16 @@ Config setup;
 ```    
 ### For controller setup
 * if createinstance is true, script will try creating a docker-machine with host name provided in host. If false, it will check if host machine is active. 
+* Enter the name of jmeter file in jmeterfile variable.
 
 ```json
   "controller":{
         "OS":"linux",
         "location": "cloud-docker",
         "host": "192.168.20.17",
+        "username": "ubuntu",
         "privatekey":"privatekey.ppk",
+        "jmeterfile": "test.jmx",
         "cloud":{
             "createinstance": "false",
             "driver": "virtualbox",

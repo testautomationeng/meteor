@@ -1,6 +1,8 @@
 $props = $args[0]
+$location = $props.loadgen.location
 
-if ($props.loadgen.location -match "local"){
+
+if ($location -match "local"){
     $loadhostList=$props.loadgen.host
     $loadhostArr = $loadhostList.Split(",")
     for ($i = 0; $i -lt $loadhostArr.Count; $i++) {
@@ -14,9 +16,10 @@ if ($props.loadgen.location -match "local"){
         }
     }
 }else{
-    $counter=$props.loadgencount
+    $counter=$props.loadgen.cloud.loadgencount
+    Write-Host "${counter}here"
     for ($i = 0; $i -lt $counter; $i++) {
-        $loadhost = .\dockermachine\docker-machine.exe ip $loadhostArr[$i]        
+        $loadhost = "loadgen${i}"
         if($props.loadgen.location -eq "cloud-docker"){
             Write-Host "Cleaning Docker on Loadgen " $loadhost -ForegroundColor Cyan
             .\dockermachine\docker-machine.exe ssh $loadhost "docker stop `$(docker ps | awk {'print `$1'})"
