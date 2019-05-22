@@ -1,6 +1,7 @@
 $ostype=$args[0]
 $hostname=$args[1]
 $isServer=$args[2]
+$username=$args[3]
 
 if($ostype -eq "windows"){
     $command = "cd c:/tmp/apache/; docker build . --tag jmeterserver-docker -q"
@@ -14,4 +15,4 @@ if($ostype -eq "windows"){
 }else{
     Write-Host "OS type is not defined " -fore Red
 }
-.\lib\plink.exe -i .\privatekey.ppk -batch -ssh "pranav@${hostName}" ${command}
+.\lib\plink.exe -i .\privatekey.ppk -batch -ssh "${username}@${hostName}" ${command}

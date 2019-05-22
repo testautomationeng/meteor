@@ -10,10 +10,10 @@ $counter=$props.loadgencount
 #run a loop to start load gen  
 for ($i = 0; $i -lt $counter; $i++) {
     $loadhostname="loadgen${i}"
-    Write-Host "Starting load generator instance # " $loadhostname
+    Write-Host "Starting load generator instance # " $loadhostname -ForegroundColor Cyan
     
     $isalive = .\dockermachine\docker-machine.exe status $loadhostname
-
+    
     if($isalive -eq "Stopped" ){
         Write-Host "load generator ${loadhostname} is stopped. Starting load generator"
         .\dockermachine\docker-machine.exe start $loadhostname
@@ -23,7 +23,7 @@ for ($i = 0; $i -lt $counter; $i++) {
     }else{
         Write-Host "Creating load generator machine ${loadhostname}"
         if($props.driver -eq "hyperv"){
-            .\dockermachine\docker-machine.exe create --driver hyperv --hyperv-virtual-switch $loadhostname
+            .\dockermachine\docker-machine.exe create --driver hyperv --hyperv-virtual-switch $props.hypervswitchname $loadhostname
         }elseif($props.driver -eq "virtualbox"){
             .\dockermachine\docker-machine.exe create --driver virtualbox $loadhostname
         }elseif($props.driver -eq "aws"){

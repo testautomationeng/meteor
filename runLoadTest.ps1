@@ -2,7 +2,7 @@
 $propFile = Get-Content(".\config.json") | ConvertFrom-Json
 $jmeterScriptPath=".\PerfScripts\jmeterScripts\"
 $jmeterPath = ".\jmeter-docker\jmeterSetup.tar.gz"
-$jmeterScriptName = "test.jmx"
+$jmeterScriptName = $propFile.controller.jmeterfile
 
 #download jmeter script from Git
 #Write-Host "Started copying JMeter scripts from source control" -ForegroundColor Cyan

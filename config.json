@@ -3,6 +3,7 @@
         "OS": "linux",
         "location":"cloud-docker",
         "host": "192.168.20.22,192.168.20.21",
+        "username": "ubuntu",
         "privatekey":"privatekey.ppk",
         "cloud": {
             "loadgencount": 1,
@@ -17,6 +18,8 @@
         "location": "cloud-docker",
         "host": "192.168.20.17",
         "privatekey":"privatekey.ppk",
+        "username": "ubuntu",
+        "jmeterfile": "test.jmx",
         "cloud":{
             "createinstance": "false",
             "driver": "virtualbox",

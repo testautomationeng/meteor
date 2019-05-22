@@ -3,6 +3,8 @@ $isDocker=$args[1]
 $remoteLoadGen=$args[2]
 $controllerhost=$args[3]
 $ppk=$args[4]
+$username=$args[5]
+
 $cmd=''
 #$jmeterpropfile = "./PerfScripts/jmeterScripts/jmeter.prop"
 #$csvfile = "./PerfScripts/jmeterScripts/jmeterData.csv"
@@ -21,4 +23,4 @@ if($isDocker){
 }
 
 write-Host "Start Jmeter Script execution on ${controllerhost}" -fore Green
-plink.exe -i ".\${ppk}" -batch -ssh "pranav@${controllerhost}" ${cmd}
+plink.exe -i ".\${ppk}" -batch -ssh "${username}@${controllerhost}" ${cmd}
